@@ -42,7 +42,10 @@ jobs:
         run: npm install --save-dev jasmine jasmine-browser-runner jasmine-core
     
       - name: Init jasmine
+        run: npx jasmine init
+        
+      - name: Init jasmine-browser-runner
         run: npx jasmine-browser-runner init
 
       - name: Run tests
-        run: npm test
+        run: ng test --browsers ChromeHeadless
