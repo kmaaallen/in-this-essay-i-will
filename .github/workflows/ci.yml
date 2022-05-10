@@ -48,4 +48,4 @@ jobs:
         run: npx jasmine-browser-runner init
 
       - name: Run tests
-        run: ng test --browsers ChromeHeadless
+        run: npm test
