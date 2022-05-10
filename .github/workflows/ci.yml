@@ -46,6 +46,9 @@ jobs:
         
       - name: Init jasmine-browser-runner
         run: npx jasmine-browser-runner init
+        
+      - name: Interactive jasmine-browser-runner
+        run: npx jasmine-browser-runner serve
 
       - name: Run tests
         run: npm test
