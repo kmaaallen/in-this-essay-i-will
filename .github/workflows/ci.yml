@@ -39,7 +39,7 @@ jobs:
         run: npm install
       
       - name: Install Jasmine
-        run: npm install --save-dev jasmine-browser-runner jasmine-core
+        run: npm install --save-dev jasmine jasmine-browser-runner jasmine-core
     
       - name: Init jasmine
         run: npx jasmine-browser-runner init
