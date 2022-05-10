@@ -6,7 +6,9 @@
     "test": "jasmine"
   },
   "devDependencies": {
-    "jasmine-browser-runner": "^1.0.0",
-    "jasmine-core": "^4.1.0"
+    "jasmine": "^4.1.0"
+  },
+  "dependencies": {
+    "puppeteer": "^14.0.0"
   }
 }
