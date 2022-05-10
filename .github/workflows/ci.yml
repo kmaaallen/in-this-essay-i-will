@@ -37,6 +37,9 @@ jobs:
             ci-
       - name: Install node modules
         run: npm install
+      
+      - name: Install Jasmine
+        run: npm install --save-dev jasmine
 
       - name: Run tests
         run: npm test
