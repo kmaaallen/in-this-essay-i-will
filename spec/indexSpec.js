@@ -2,6 +2,7 @@ import puppeteer from 'puppeteer';
 
 const URL = 'http://localhost:3000/';
 
+
 describe('Index', () => {
     var originalTimeout;
     let browser = null;
