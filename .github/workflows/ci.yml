@@ -36,7 +36,9 @@ jobs:
             ci-${{ env.cache-name }}-
             ci-
       - name: Install node modules
-        run: npm install
+        run: npm ci
 
-      - name: Run tests
-        run: npm test
+      - name: Start server and run tests
+        run: | 
+        npm start
+        npm test

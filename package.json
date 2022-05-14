@@ -6,9 +6,10 @@
     "test": "jasmine"
   },
   "devDependencies": {
-    "jasmine": "^4.1.0"
+    "jasmine": "^4.1.0",
+    "puppeteer": "^14.0.0"
   },
   "dependencies": {
-    "puppeteer": "^14.0.0"
+    "fs": "^0.0.1-security"
   }
 }

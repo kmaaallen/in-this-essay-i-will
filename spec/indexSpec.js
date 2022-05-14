@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-const URL = 'http://localhost:3000/src/index.html';
+const URL = 'http://localhost:3000/';
 
 describe('Index', () => {
     var originalTimeout;
@@ -29,7 +29,6 @@ describe('Index', () => {
     afterEach(async () => {
         await browser.close();
     });
-
     it('should have correct title', async () => {
         expect(await page.title()).toBe('In this essay I will');
     });
@@ -44,26 +43,9 @@ describe('Index', () => {
 
     it('should have toggle button that toggle between light and dark theme when clicked', async () => {
         expect(await page.content()).toContain('<button id="theme-toggle" onclick="toggleTheme()">Theme <i class="fa-solid fa-circle-half-stroke color-accent"></i></button>');
+        await page.click('button#theme-toggle');
+        expect(await page.content()).toContain('<body id="body" class="theme-light">');
         await page.click('#theme-toggle');
-        expect(await page.$eval('body', (e) => e.classList[0])).toBe('theme-light');
-        await page.click('#theme-toggle');
-        expect(await page.$eval('body', (e) => e.classList.length)).toBe(0);
+        expect(await page.content()).not.toContain('<body id="body" class="theme-light">');
     });
-
 });
-
-/*
-describe('Theme toggle button', function () {
-    it('should call toggleTheme function when clicked', function () {
-        spyOn(window, 'toggleTheme');
-        document.getElementById('theme-toggle').click();
-        expect(window.toggleTheme).toHaveBeenCalled();
-    });
-    it('on click, should add theme-light class to body if theme-light class not present, and remove if it is present', function () {
-        expect(document.getElementById('body').classList).not.toContain('theme-light');
-        document.getElementById('theme-toggle').click();
-        expect(document.getElementById('body').classList).toContain('theme-light');
-        document.getElementById('theme-toggle').click();
-        expect(document.getElementById('body').classList).not.toContain('theme-light');
-    });
-});*/
