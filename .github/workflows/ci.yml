@@ -37,9 +37,6 @@ jobs:
             ci-
       - name: Install node modules
         run: npm ci
-
-      - name: Start server
-        run: npm start
         
       - name: Run tests
         run: npm test
