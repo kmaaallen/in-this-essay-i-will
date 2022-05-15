@@ -1,6 +1,6 @@
 /* Variables */
 /* Theme map */
-:root {
+:root, .theme-dark {
   --primary-color: #004643;
   --secondary-color: #66908e;
   --text-color: #ffffff;
@@ -27,16 +27,37 @@ header {
   margin: 0;
 }
 
+main {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+#settings {
+  min-width: 100px;
+  min-height: 500px;
+  text-align: center;
+}
+#settings ul {
+  list-style: none;
+}
+
 .color-accent {
   color: var(--secondary-color);
 }
 
 button {
-  border: none;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  padding: 10px;
+  margin: 5px;
   background-color: var(--primary-color);
   color: var(--text-color);
   font-family: "Courier New", Helvetica, sans-serif;
   min-width: 100px;
+}
+button.active-theme {
+  border: 3px solid var(--secondary-color);
 }
 
 /*# sourceMappingURL=style.css.map */
