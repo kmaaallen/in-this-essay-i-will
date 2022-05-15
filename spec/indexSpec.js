@@ -37,15 +37,33 @@ describe('Index', () => {
         expect(await page.content()).toContain('<h1>IN THIS ESSAY I WILL...</h1>');
     });
 
-    it('should have no theme classes on the body when first loaded', async () => {
+    it('should have a dark theme active when page first loaded', async () => {
         expect(await page.content()).toContain('<body id="body">');
+        expect(await page.content()).toContain('<button id="theme-dark" onclick="selectTheme(\'theme-dark\')" class="active-theme">');
     });
 
-    it('should have toggle button that toggle between light and dark theme when clicked', async () => {
-        expect(await page.content()).toContain('<button id="theme-toggle" onclick="toggleTheme()">Theme <i class="fa-solid fa-circle-half-stroke color-accent"></i></button>');
-        await page.click('button#theme-toggle');
-        expect(await page.content()).toContain('<body id="body" class="theme-light">');
-        await page.click('#theme-toggle');
-        expect(await page.content()).not.toContain('<body id="body" class="theme-light">');
+    it('should have a button that adds a light theme to the body and shows when theme active', async () => {
+        // Get light button element
+        const lightbtn = await page.$("#theme-light");
+        // First check light theme not applied
+        let firstClassName = await page.evaluate(el => el.className, lightbtn);
+        expect(firstClassName).not.toBe('active-theme');
+        // Switch to light theme
+        await page.click('button#theme-light');
+        let secondClassName = await page.evaluate(el => el.className, lightbtn);
+        expect(secondClassName).toBe('active-theme');
+    });
+
+    it('should have a button that adds a dark theme to the body and shows when theme active', async () => {
+        // Get dark button element
+        const darkbtn = await page.$("#theme-dark");
+        // First switch to light theme to test change back to dark theme
+        await page.click('button#theme-light');
+        let firstClassName = await page.evaluate(el => el.className, darkbtn);
+        expect(firstClassName).not.toBe('active-theme');
+        // Switch back to dark theme using button
+        await page.click('button#theme-dark');
+        let secondClassName = await page.evaluate(el => el.className, darkbtn);
+        expect(secondClassName).toBe('active-theme');
     });
 });
