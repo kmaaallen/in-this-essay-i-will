@@ -2,6 +2,7 @@
   "name": "in-this-essay-i-will",
   "version": "1.0.0",
   "type": "module",
+  "homepage": "https://kmaaallen.github.io/in-this-essay-i-will/src/",
   "scripts": {
     "test": "jasmine"
   },
