@@ -44,7 +44,7 @@ describe('Index', () => {
 
     it('should have a button that adds a light theme to the body and shows when theme active', async () => {
         // Get light button element
-        const lightbtn = await page.$("#theme-light");
+        const lightbtn = await page.$('#theme-light');
         // First check light theme not applied
         let firstClassName = await page.evaluate(el => el.className, lightbtn);
         expect(firstClassName).not.toBe('active-theme');
@@ -56,7 +56,7 @@ describe('Index', () => {
 
     it('should have a button that adds a dark theme to the body and shows when theme active', async () => {
         // Get dark button element
-        const darkbtn = await page.$("#theme-dark");
+        const darkbtn = await page.$('#theme-dark');
         // First switch to light theme to test change back to dark theme
         await page.click('button#theme-light');
         let firstClassName = await page.evaluate(el => el.className, darkbtn);
@@ -65,5 +65,18 @@ describe('Index', () => {
         await page.click('button#theme-dark');
         let secondClassName = await page.evaluate(el => el.className, darkbtn);
         expect(secondClassName).toBe('active-theme');
+    });
+
+    it('should have webside carbon badge in footer displaying in dark or light theme depending on main theme', async () => {
+        // Get website carbon badge
+        const wcb = await page.$('#wcb');
+        //Should be in dark theme on load
+        expect(await page.content()).toContain('<div id="wcb" class="carbonbadge wcb-d">');
+        let wcbClass = await page.evaluate(el => el.className, wcb);
+        expect(wcbClass).toBe('carbonbadge wcb-d');
+        // Change to light theme
+        await page.click('button#theme-light');
+        let wcbClassSecond = await page.evaluate(el => el.className, wcb);
+        expect(wcbClassSecond).toBe('carbonbadge');
     });
 });

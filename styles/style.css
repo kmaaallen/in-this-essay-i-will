@@ -33,6 +33,11 @@ main {
   width: 100%;
 }
 
+footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
 #settings {
   min-width: 100px;
   min-height: 500px;
