@@ -30,11 +30,11 @@ describe('Index', () => {
         await browser.close();
     });
     it('should have correct title', async () => {
-        expect(await page.title()).toBe('In this essay I will');
+        expect(await page.title()).toBe('Kirsten runs a marathon');
     });
 
     it('should have contain header with title', async () => {
-        expect(await page.content()).toContain('<h1>IN THIS ESSAY I WILL...</h1>');
+        expect(await page.content()).toContain('<h1>Kirsten runs a marathon</h1>');
     });
 
     it('should have a dark theme active when page first loaded', async () => {
