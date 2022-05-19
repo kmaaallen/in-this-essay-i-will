@@ -25,6 +25,7 @@ $border-width: 3px;
 
 /* Styles */
 body {
+  font-family: $fonts;
   margin: 0;
   background-color: var(--primary-color);
   color: var(--text-color);
@@ -32,7 +33,6 @@ body {
 }
 
 header {
-  font-family: $fonts;
   display: flex;
   justify-content: space-between;
   margin: 0;

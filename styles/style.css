@@ -14,6 +14,7 @@
 
 /* Styles */
 body {
+  font-family: "Courier New", Helvetica, sans-serif;
   margin: 0;
   background-color: var(--primary-color);
   color: var(--text-color);
@@ -21,7 +22,6 @@ body {
 }
 
 header {
-  font-family: "Courier New", Helvetica, sans-serif;
   display: flex;
   justify-content: space-between;
   margin: 0;

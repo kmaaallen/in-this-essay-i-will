@@ -30,11 +30,16 @@ describe('Index', () => {
         await browser.close();
     });
     it('should have correct title', async () => {
-        expect(await page.title()).toBe('Kirsten runs a marathon');
+        expect(await page.title()).toBe('The Green Project');
     });
 
     it('should have contain header with title', async () => {
-        expect(await page.content()).toContain('<h1>Kirsten runs a marathon</h1>');
+        expect(await page.content()).toContain('<h1>The Green Project</h1>');
+    });
+
+    it('should contain an about section', async () => {
+        const about = await page.$('#about');
+        expect(about).toBeTruthy();
     });
 
     it('should have a dark theme active when page first loaded', async () => {
