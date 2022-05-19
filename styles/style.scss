@@ -49,6 +49,10 @@ footer{
   justify-content: flex-end;
 }
 
+#content{
+  padding-right: $standard-spacing;
+}
+
 #settings {
 min-width: 100px;
 min-height: 500px;
@@ -56,6 +60,7 @@ text-align: center;
 
 ul {
   list-style: none;
+  padding-inline-start: 0;
 }
 }
 
@@ -67,7 +72,7 @@ button {
   border: 1px solid var(--secondary-color);
   border-radius: 4px;
   padding: 10px;
-  margin: 5px;
+  margin-bottom: 5px;
   background-color: var(--primary-color);
   color: var(--text-color);
   font-family: $fonts;
