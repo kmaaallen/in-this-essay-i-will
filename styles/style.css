@@ -3,13 +3,13 @@
 :root, .theme-dark {
   --primary-color: #004643;
   --secondary-color: #66908e;
-  --text-color: #ffffff;
+  --text-color: #e5ecec;
 }
 
 .theme-light {
   --primary-color: #e5ecec;
   --secondary-color: #7fa2a1;
-  --text-color: #000000;
+  --text-color: #004643;
 }
 
 /* Styles */
@@ -41,15 +41,41 @@ footer {
 #content {
   padding-right: 30px;
 }
+#content h2 {
+  margin: 30px 0;
+  text-decoration: underline;
+}
 
 #settings {
   min-width: 100px;
   min-height: 500px;
   text-align: center;
 }
-#settings ul {
+
+ul {
   list-style: none;
   padding-inline-start: 0;
+}
+
+a {
+  color: var(--text-color);
+  font-weight: bolder;
+  font-size: 20px;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.published {
+  font-size: 12px;
+  font-style: italic;
+}
+
+hr {
+  margin: 30px 0;
+  border-top: dashed 1px var(--secondary-color);
+  border-bottom: none;
 }
 
 .color-accent {

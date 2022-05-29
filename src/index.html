@@ -29,8 +29,9 @@
           a few titbits on sustainable design and development as they grab my
           interest.
         </div>
-        <div id="articles">
+        <div id="posts">
           <h2>Posts</h2>
+          <div id="blog_list_container"></div>
         </div>
       </div>
       <div id="settings">
@@ -60,5 +61,18 @@
       ></script>
     </footer>
     <script src="index.js"></script>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script
+      src="https://unpkg.com/react@18/umd/react.production.min.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+      crossorigin
+    ></script>
+    <!-- Load our React component. -->
+    <script type="module" src="posts.js"></script>
   </body>
 </html>
