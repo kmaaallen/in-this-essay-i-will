@@ -1,4 +1,5 @@
 import puppeteer from 'puppeteer';
+import { blogs } from '../src/blog.js';
 
 const URL = 'http://localhost:3000/';
 
@@ -42,6 +43,11 @@ describe('Index', () => {
         expect(about).toBeTruthy();
     });
 
+    it('should contain a posts section', async () => {
+        const posts = await page.$('#posts');
+        expect(posts).toBeTruthy();
+    });
+
     it('should have a dark theme active when page first loaded', async () => {
         expect(await page.content()).toContain('<body id="body">');
         expect(await page.content()).toContain('<button id="theme-dark" onclick="selectTheme(\'theme-dark\')" class="active-theme">');
@@ -72,7 +78,7 @@ describe('Index', () => {
         expect(secondClassName).toBe('active-theme');
     });
 
-    it('should have webside carbon badge in footer displaying in dark or light theme depending on main theme', async () => {
+    it('should have website carbon badge in footer displaying in dark or light theme depending on main theme', async () => {
         // Get website carbon badge
         const wcb = await page.$('#wcb');
         //Should be in dark theme on load
