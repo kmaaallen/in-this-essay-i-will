@@ -38,6 +38,10 @@ footer {
   justify-content: flex-end;
 }
 
+#content {
+  padding-right: 30px;
+}
+
 #settings {
   min-width: 100px;
   min-height: 500px;
@@ -45,6 +49,7 @@ footer {
 }
 #settings ul {
   list-style: none;
+  padding-inline-start: 0;
 }
 
 .color-accent {
@@ -55,7 +60,7 @@ button {
   border: 1px solid var(--secondary-color);
   border-radius: 4px;
   padding: 10px;
-  margin: 5px;
+  margin-bottom: 5px;
   background-color: var(--primary-color);
   color: var(--text-color);
   font-family: "Courier New", Helvetica, sans-serif;
