@@ -1,4 +1,5 @@
 
+// ES support lacking in node.js driver - failing ci workflow when imports usedso destructured
 import mongodb from 'mongodb';
 const { MongoClient } = mongodb;
 const { ServerApiVersion } = mongodb;
