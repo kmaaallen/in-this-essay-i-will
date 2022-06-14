@@ -1,5 +1,7 @@
-
-import { MongoClient, ServerApiVersion } from 'mongodb';
+// ES support lacking in node.js driver - failing ci workflow when imports used so destructured
+import mongodb from 'mongodb';
+const { MongoClient } = mongodb;
+const { ServerApiVersion } = mongodb;
 import dotenv from "dotenv";
 
 dotenv.config()
