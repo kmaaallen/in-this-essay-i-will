@@ -17,12 +17,18 @@ on:
 jobs:
   ci:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [13.x]
+        mongodb-version: [4.2]
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup node
+      - name: Setup node ${{ matrix.node-version }}
         uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
 
       - name: Cache node modules
         uses: actions/cache@v2
@@ -35,6 +41,10 @@ jobs:
           restore-keys: |
             ci-${{ env.cache-name }}-
             ci-
+      - name: Start MongoDB v${{ matrix.node-version }}
+        uses: superchargejs/mongodb-github-action@1.0.0
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
 
       - name: npm install, build, and test
         run: |
@@ -44,3 +54,4 @@ jobs:
           npm test
         env:
           CI: true
+          MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
