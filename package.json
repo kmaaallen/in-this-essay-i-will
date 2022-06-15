@@ -4,8 +4,7 @@
   "type": "module",
   "scripts": {
     "start": "node server/server.js",
-    "test": "jasmine",
-    "test-headless": "jasmine --browsers=ChromeHeadless"
+    "test": "jasmine"
   },
   "devDependencies": {
     "jasmine": "^4.1.0",

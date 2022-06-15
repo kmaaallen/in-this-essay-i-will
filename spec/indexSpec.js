@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-const URL = 'http://localhost:3000/';
+const URL = 'http://127.0.0.1:3000/';
 
 describe('Index', () => {
     var originalTimeout;
