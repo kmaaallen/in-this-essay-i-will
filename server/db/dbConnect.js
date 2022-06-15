@@ -1,12 +1,14 @@
-import * as mongodb from 'mongodb';
+import mongodb from "mongodb";
+const MongoClient = mongodb.MongoClient;
+const ServerApiVersion = mongodb.MongoClient;
 import dotenv from "dotenv";
 
 dotenv.config()
 
 let greendb;
-const serverApi = 1;
+
 const connectionString = process.env.MONGO_DB_URI;
-const client = new mongodb.MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: serverApi });
+const client = new MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 
 
 export const connectToServer = function () {
