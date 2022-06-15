@@ -1,10 +1,6 @@
-// ES support lacking in node.js driver - failing ci workflow when imports used so destructured
 import express from 'express';
-const { Router } = express;
-// recordRoutes is an instance of the express router.
-// We use it to define our routes.
 // The router will be added as a middleware and will take control of requests starting with path /listings.
-const routes = Router();
+const routes = express.Router();
 
 // This will help us connect to the database
 import { getDb } from '../db/dbConnect.js';
