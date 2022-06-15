@@ -19,7 +19,7 @@ describe('Index', () => {
     beforeEach(async () => {
         browser = await puppeteer.launch(
             {
-                headless: true,
+                headless: false,
             }
         );
         page = await browser.newPage();
