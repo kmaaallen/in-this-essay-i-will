@@ -4,8 +4,9 @@ import dotenv from "dotenv";
 dotenv.config()
 
 let greendb;
+const serverApi = mongodb.ServerApiVersion.v1;
 const connectionString = process.env.MONGO_DB_URI;
-const client = new mongodb.MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: mongodb.ServerApiVersion.v1 });
+const client = new mongodb.MongoClient(connectionString, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: serverApi });
 
 
 export const connectToServer = function () {
