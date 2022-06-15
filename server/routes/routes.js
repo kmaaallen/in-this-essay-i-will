@@ -1,9 +1,9 @@
-import express from 'express';
+const express = require('express');
 // The router will be added as a middleware and will take control of requests starting with path /listings.
 const routes = express.Router();
 
 // This will help us connect to the database
-import { getDb } from '../db/dbConnect.js';
+const { getDb } = '../db/dbConnect.js';
 
 // Get a list of all the records.
 routes.route('/posts').get(async function (_req, res) {
@@ -23,4 +23,4 @@ routes.route('/posts').get(async function (_req, res) {
         });
 });
 
-export default routes;
+exports.routes = routes;

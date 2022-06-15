@@ -1,15 +1,15 @@
-import express from 'express';
-import * as url from 'url';
-import { connectToServer } from './db/dbConnect.js';
-import routes from './routes/routes.js';
-import cors from 'cors';
-import path from 'path';
+const express = require('express');
+const url = require('url');
+const cors = require('cors');
+const path = require('path');
+const { connectToServer } = require('./db/dbConnect.js');
+const { routes } = require('./routes/routes.js');
 
-const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
+//const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const app = express();
 
 //static files
-app.use("/static", express.static(__dirname + '../static'));
+app.use('/static', express.static(path.join(__dirname, '..', 'static')));
 //cors
 app.use(cors({ origin: true, credentials: true }));
 //routes
@@ -20,8 +20,9 @@ connectToServer();
 
 // Get index page
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname + '../src/index.html'));
+    res.sendFile(path.join(__dirname, '..', 'src', 'index.html'));
 });
+//green-project/src/index.html
 
 // start the Express server
 app.listen(3000, () => {
