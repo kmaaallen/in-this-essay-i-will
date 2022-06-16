@@ -1,5 +1,4 @@
-import puppeteer from 'puppeteer';
-import { blogs } from '../src/blog.js';
+const puppeteer = require('puppeteer');
 
 const URL = 'http://localhost:3000/';
 
