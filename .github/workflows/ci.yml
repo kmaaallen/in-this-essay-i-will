@@ -48,7 +48,7 @@ jobs:
 
       - name: Install dependencies & start server
         run: |
-          cd green-project/server
+          cd server
           npm ci
           npm start
         env:
@@ -57,13 +57,13 @@ jobs:
 
       - name: Install dependencies & start client
         run: |
-          cd green-project/client
+          cd client
           npm ci
           npm start
 
     - name: Run tests
         run: |
-          cd green-project/server
+          cd server
           npm test
           
           
