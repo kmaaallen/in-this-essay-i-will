@@ -46,24 +46,16 @@ jobs:
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
 
-      - name: Install dependencies & start server
-        run: |
-          cd server
-          npm ci
-          npm start
-        env:
-          MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
-          CI: true
+      - name: npm install and start server
+          run: (cd server && npm ci && npm start &)
+      
+      - name: npm install and start client
+          run: (cd client && npm ci && npm start &)
 
-      - name: Install dependencies & start client
-        run: |
-          cd client
-          npm ci
-          npm start
-
-    - name: Run tests
-        run: |
-          cd server
-          npm test
+      - name: run test
+          run: (cd server && npm test)
+          env:
+            CI: true
+            MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
           
           
