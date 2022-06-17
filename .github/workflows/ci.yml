@@ -47,19 +47,19 @@ jobs:
           mongodb-version: ${{ matrix.mongodb-version }}
 
       - name: npm install and start server
-          run: 
+          run: |
             cd server
             npm ci
             npm start
       
       - name: npm install and start client
-          run: 
+          run: |
             cd client
             npm ci
             npm start
 
       - name: run test
-          run: 
+          run: |
             cd server
             npm test
           env:
