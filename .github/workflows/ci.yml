@@ -56,13 +56,11 @@ jobs:
 
       - name: npm install and start client
         run: |
-          cd ../client
+          cd client
           npm ci
           npm start
 
       - name: run test
         run: |
-          cd ../server
+          cd server
           npm test
-        env:
-          CI: true
