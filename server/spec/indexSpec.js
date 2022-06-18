@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 
 const URL = 'http://localhost:3000/';
 
-describe('Index', () => {
+describe('Homepage', () => {
     var originalTimeout;
     let browser = null;
     let page = null;
@@ -49,7 +49,9 @@ describe('Index', () => {
 
     it('should have a dark theme active when page first loaded', async () => {
         expect(await page.content()).toContain('<body id="body">');
-        expect(await page.content()).toContain('<button id="theme-dark" onclick="selectTheme(\'theme-dark\')" class="active-theme">');
+        const darkbtn = await page.$('#theme-dark');
+        let firstClassName = await page.evaluate(el => el.className, darkbtn);
+        expect(firstClassName).toBe('active-theme');
     });
 
     it('should have a button that adds a light theme to the body and shows when theme active', async () => {

@@ -3,24 +3,18 @@ const express = require('express');
 const routes = express.Router();
 
 // This will help us connect to the database
-const { getDb } = '../db/dbConnect.js';
+const { getDb } = require('../db/dbConnect');
 
-// Get a list of all the records.
-routes.route('/posts').get(async function (_req, res) {
-    const dbConnect = getDb();
-
+// Get a list of all the posts.
+routes.route("/").get(function (req, res) {
+    let dbConnect = getDb();
     dbConnect
-        .collection('posts')
+        .collection("posts")
         .find({})
-        .limit(50)
         .toArray(function (err, result) {
-            if (err) {
-                res.status(400).send('Error fetching posts!');
-            } else {
-                res.json(result);
-                console.log(res.json(result));
-            }
+            if (err) throw err;
+            res.json(result);
         });
 });
 
-exports.routes = routes;
+module.exports = routes;
