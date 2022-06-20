@@ -1,3 +1,3 @@
-# In this essay I will project
+# The Green Project
 
-A personal blog project to explore theming.
+A personal blog project to explore sustainable or 'green' web design using the MERN stack.
