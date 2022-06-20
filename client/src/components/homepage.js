@@ -31,12 +31,7 @@ export default function Homepage() {
                 <div id="content">
                     <div id="about">
                         <h2>About</h2>
-                        I'm a budding web developer with a keen interest in sustainable web
-                        design. I've long been an advocate for reducing waste at home and
-                        shopping sustainably but only recently have I considered how web
-                        design could negatively impact the environment. This blog will contain
-                        a few titbits on sustainable design and development as they grab my
-                        interest.
+                        I'm a web developer with a keen interest in sustainablity. This blog is a few titbits gleaned from my journey into green web design.
                     </div>
                     <div id="posts">
                         <h2>Posts</h2>
