@@ -16,7 +16,7 @@ export default function ThemeButton(props) {
 
     return (
         <button id={props.id} onClick={selectTheme} className={props.active || ''}>
-            <i className={props.icon}></i> {props.label}
+            <i className={props.icon}></i><span className='label'>{props.label}</span>
         </button>
     )
 }
