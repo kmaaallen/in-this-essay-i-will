@@ -57,7 +57,7 @@ jobs:
         run: |
           cd client
           npm ci
-          npm start & npx wait-on http://localhost:3000
+          npm start & npx wait-on http://localhost:5000
 
       - name: run test
         run: npm test
