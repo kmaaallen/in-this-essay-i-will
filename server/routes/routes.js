@@ -17,4 +17,16 @@ routes.route("/").get(function (req, res) {
         });
 });
 
+// Get a list of all the resources.
+routes.route("/resources").get(function (req, res) {
+    let dbConnect = getDb();
+    dbConnect
+        .collection("resources")
+        .find({})
+        .toArray(function (err, result) {
+            if (err) throw err;
+            res.json(result);
+        });
+});
+
 module.exports = routes;
