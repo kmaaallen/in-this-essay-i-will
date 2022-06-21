@@ -9,7 +9,7 @@ export default function Homepage() {
     // This method fetches the records from the database.
     useEffect(() => {
         async function getPosts() {
-            const response = await fetch(`http://localhost:5000/`);
+            const response = await fetch(`http://localhost:5000/posts`);
             if (!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
                 window.alert(message);

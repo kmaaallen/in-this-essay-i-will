@@ -6,7 +6,7 @@ const routes = express.Router();
 const { getDb } = require('../db/dbConnect');
 
 // Get a list of all the posts.
-routes.route("/").get(function (req, res) {
+routes.route("/posts").get(function (req, res) {
     let dbConnect = getDb();
     dbConnect
         .collection("posts")
