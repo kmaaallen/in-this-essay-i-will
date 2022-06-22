@@ -49,7 +49,7 @@ jobs:
       - name: npm install and start server
         run: |
           npm ci
-          npm start & npx wait-on http://localhost:5000
+          npm start & npx wait-on http://localhost:5000/posts
         env:
           MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
 
