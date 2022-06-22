@@ -14,13 +14,12 @@ app.use(require('./routes/routes'));
 // perform a database connection when the server starts
 connectToServer();
 
-//production
+// serve static assets in production
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, 'client', 'build')));
+    //Set static folder
+    app.use(express.static('client/build'));
 
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-    });
+    app.get('*', (req, res) => res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')));
 }
 
 // start the Express server
