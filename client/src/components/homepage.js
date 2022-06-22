@@ -9,7 +9,7 @@ export default function Homepage() {
     // This method fetches the records from the database.
     useEffect(() => {
         async function getPosts() {
-            const response = await fetch(`http://localhost:5000/posts`);
+            const response = await fetch(`${process.env.SERVER_URL}/posts`);
             if (!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
                 window.alert(message);
@@ -24,7 +24,7 @@ export default function Homepage() {
 
     useEffect(() => {
         async function getResources() {
-            const response = await fetch(`http://localhost:5000/resources`);
+            const response = await fetch(`${process.env.SERVER_URL}/resources`);
             if (!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
                 window.alert(message);
