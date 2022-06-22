@@ -52,13 +52,14 @@ jobs:
           npm start & npx wait-on http://localhost:5000/posts
         env:
           MONGO_DB_URI: ${{ secrets.MONGO_DB_URI }}
-          SERVER_URL: ${{ secrets.SERVER_URL }}
 
       - name: npm install and start client
         run: |
           cd client
           npm ci
           npm start & npx wait-on http://localhost:3000
+        env:
+          REACT_APP_SERVER_URL: ${{ secrets.REACT_APP_SERVER_URL }}
 
       - name: run test
         run: npm test
