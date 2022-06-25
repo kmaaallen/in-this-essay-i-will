@@ -28,22 +28,25 @@ header {
   justify-content: space-between;
   margin: 0;
 }
+header .settings {
+  display: flex;
+}
 header button {
   margin: 15px 0 15px 10px;
+  max-height: 40px;
 }
 header button .label {
   display: none;
 }
 
 main {
-  display: inline-flex;
+  display: inline-block;
   justify-content: space-between;
-  width: 100%;
 }
 
 footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 #content {
@@ -51,7 +54,17 @@ footer {
 }
 
 #resources {
-  display: none;
+  display: block;
+  min-width: 260px;
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  height: fit-content;
+  text-align: center;
+  border: dashed 1px var(--secondary-color);
+  border-radius: 4px;
+}
+#resources a {
+  font-size: 15px;
 }
 
 h2,
@@ -110,22 +123,16 @@ button.active-theme {
     display: inline-flex;
   }
 
+  main {
+    display: inline-flex;
+  }
+
   button {
     min-width: 100px;
   }
 
-  #resources {
-    display: block;
-    min-width: 200px;
-    margin-bottom: 30px;
-    padding-bottom: 30px;
-    height: fit-content;
-    text-align: center;
-    border: dashed 1px var(--secondary-color);
-    border-radius: 4px;
-  }
-  #resources a {
-    font-size: 15px;
+  footer {
+    justify-content: flex-end;
   }
 }
 

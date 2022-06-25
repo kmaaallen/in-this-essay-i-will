@@ -1,6 +1,9 @@
 const puppeteer = require('puppeteer');
+const dotenv = require('dotenv');
 
-const URL = 'http://localhost:3000/';
+dotenv.config()
+
+const URL = process.env.REACT_APP_SERVER_URL;
 
 describe('Homepage', () => {
     var originalTimeout;
@@ -45,6 +48,11 @@ describe('Homepage', () => {
     it('should contain a posts section', async () => {
         const posts = await page.$('#posts');
         expect(posts).toBeTruthy();
+    });
+
+    it('should contain a resources section', async () => {
+        const resources = await page.$('#resources');
+        expect(resources).toBeTruthy();
     });
 
     it('should have a dark theme active when page first loaded', async () => {
