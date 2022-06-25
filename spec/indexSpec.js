@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 
 dotenv.config()
 
-const URL = `${process.env.REACT_APP_SERVER_URL}`;
+const URL = process.env.REACT_APP_SERVER_URL || 'http://localhost:3000';
 
 describe('Homepage', () => {
     var originalTimeout;
