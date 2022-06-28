@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+// Components
 import Posts from "./posts";
 import Resources from "./resources";
 
@@ -33,9 +34,7 @@ export default function Homepage() {
                     <Posts posts={posts} />
                 </div>
             </div>
-
             <Resources />
-
         </main >
     )
 
