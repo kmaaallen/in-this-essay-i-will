@@ -5,6 +5,9 @@ const routes = express.Router();
 // This will help us connect to the database
 const { getDb } = require('../db/dbConnect');
 
+// This help convert the id from string to ObjectId for the _id.
+const ObjectId = require("mongodb").ObjectId;
+
 // Get a list of all the posts.
 routes.route("/posts").get(function (req, res) {
     let dbConnect = getDb();
@@ -12,6 +15,18 @@ routes.route("/posts").get(function (req, res) {
         .collection("posts")
         .find({})
         .toArray(function (err, result) {
+            if (err) throw err;
+            res.json(result);
+        });
+});
+
+// Get a single post by id
+routes.route("/post/:id").get(function (req, res) {
+    let dbConnect = getDb();
+    let myquery = { _id: ObjectId(req.params.id) };
+    dbConnect
+        .collection("posts")
+        .findOne(myquery, function (err, result) {
             if (err) throw err;
             res.json(result);
         });

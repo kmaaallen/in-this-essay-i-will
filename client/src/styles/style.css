@@ -42,11 +42,14 @@ header button .label {
 main {
   display: inline-block;
   justify-content: space-between;
+  min-height: 80vh;
+  /* Temporary until more posts */
 }
 
 footer {
   display: flex;
   justify-content: center;
+  bottom: 0;
 }
 
 #content {
@@ -114,6 +117,11 @@ button {
 }
 button.active-theme {
   border: 3px solid var(--secondary-color);
+}
+
+.homelink {
+  font-size: 14px;
+  font-weight: 400;
 }
 
 /* Media queries */

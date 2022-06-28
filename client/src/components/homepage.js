@@ -4,7 +4,6 @@ import Resources from "./resources";
 
 export default function Homepage() {
     const [posts, setPosts] = useState([]);
-    const [resources, setResources] = useState([]);
 
     // This method fetches the records from the database.
     useEffect(() => {
@@ -22,21 +21,6 @@ export default function Homepage() {
         return;
     }, [posts.length]);
 
-    useEffect(() => {
-        async function getResources() {
-            const response = await fetch(`${process.env.REACT_APP_SERVER_URL}/resources`);
-            if (!response.ok) {
-                const message = `An error occurred: ${response.statusText}`;
-                window.alert(message);
-                return;
-            }
-            const resources = await response.json();
-            setResources(resources);
-        }
-        getResources();
-        return;
-    }, [resources.length]);
-
     return (
         <main>
             <div id="content">
@@ -49,10 +33,9 @@ export default function Homepage() {
                     <Posts posts={posts} />
                 </div>
             </div>
-            <div id="resources">
-                <h3>Useful links</h3>
-                <Resources resources={resources} />
-            </div>
+
+            <Resources />
+
         </main >
     )
 
