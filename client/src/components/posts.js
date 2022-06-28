@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Posts(props) {
 
@@ -6,14 +7,14 @@ export default function Posts(props) {
         <ul>
             {props.posts.map((post) => {
                 return (
-                    <li key={post.title}>
-                        <h3>{post.title}</h3>
-                        <p>{post.subtitle}</p>
-                        <p className='published'>{post.published}</p>
-                        {/* For now just displaying body of post on homepage - TO BE IMPROVED*/}
-                        <div dangerouslySetInnerHTML={{ __html: post.body }} />
-                        <hr />
-                    </li>
+                    <Link to={`/post/${post._id}`} key={post._id}>
+                        <li key={post.title}>
+                            <h3>{post.title}</h3>
+                            <p>{post.subtitle}</p>
+                            <p className='published'>{post.published}</p>
+                            <hr />
+                        </li>
+                    </Link>
                 )
             })}
         </ul >

@@ -6,6 +6,7 @@ import { Route, Routes } from "react-router-dom";
 import './styles/style.css';
 // Components
 import Header from './components/header';
+import Post from "./components/post";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Header />
       <Routes>
         <Route exact path="/" element={<Homepage />} />
+        <Route exact path="/post/:id" element={<Post />} />
       </Routes>
     </div>
   );
